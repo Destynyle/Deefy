@@ -1,0 +1,140 @@
+/* Palette de couleurs */
+:root {
+    --background-dark: #2E3A46;
+    --background-light: #3D4F61;
+    --highlight: #00A8E8;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A5B1C2;
+    --border-color: #4B5E73;
+}
+
+/* Style de base pour le corps de la page */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px;
+    background-color: var(--background-light);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* La sidebar s'étend uniquement jusqu'à la hauteur de son contenu */
+}
+
+.sidebar h1 {
+    color: var(--highlight);
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--highlight);
+    color: var(--text-primary);
+}
+
+/* Contenu principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--background-dark);
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content h2 {
+    color: var(--highlight);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.main-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Footer du lecteur de musique */
+.footer-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    z-index: 1000;
+}
+
+/* Boutons du lecteur */
+.footer-player .controls {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-player button {
+    background: none;
+    border: none;
+    color: var(--highlight);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-player button:hover {
+    color: var(--text-primary);
+}
+
+/* Information sur le morceau */
+.footer-player .track-info {
+    flex: 1;
+    text-align: center;
+    font-size: 1em;
+    color: var(--text-secondary);
+}
+
+.footer-player .track-info span {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* Responsive Design */
+
+/* Écrans en dessous de 768px */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Masquer la barre latérale */
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .footer-player {
+        left: 0;
+    }
+}
